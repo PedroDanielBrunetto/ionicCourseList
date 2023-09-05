@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Cadastro de Curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <ion-item>
+          <ion-label>Nome:</ion-label>
+          <ion-input [(ngModel)]="nome"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Início:</ion-label>
+          <ion-datetime [(ngModel)]="inicio"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>Duração:</ion-label>
+          <ion-input [(ngModel)]="duracao"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Valor Mensal:</ion-label>
+          <ion-input type="number" [(ngModel)]="valorMensal"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="onAddCurso()">Adicionar Curso</ion-button>
+      <ion-list-header>
+          Cursos Cadastrados
+      </ion-list-header>
+      <ion-item *ngFor="let curso of cursos">
+          {{ curso.nome }} - {{ curso.inicio | date:'shortDate' }} - {{ curso.duracao }} Horas - ${{ curso.valorMensal }}
+      </ion-item>
+  </ion-list>
+</ion-content>
